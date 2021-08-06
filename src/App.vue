@@ -10,7 +10,7 @@
     <!-- 3、主體內容(即跳轉到對應內容) -->
     <!-- 路由出口 -->
     <!-- 路由匹配到的組件將渲染在這 -->
-    <keep-alive>   <!-- keep-alive:當router切換到其他組件時，keep-alive包裹動態組件將會緩存資料狀態 -->
+    <keep-alive>   <!-- keep-alive:當router切換到其他組件時，keep-alive包裹動態組件將會緩存資料狀態與生命週期 -->
       <router-view></router-view>
     </keep-alive>
   </div>
