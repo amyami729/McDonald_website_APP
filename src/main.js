@@ -14,7 +14,8 @@ Vue.config.productionTip = false;
 
 //使用VueRouter插件
 Vue.use(VueRouter);
-//如果在其他組件中使用axios命令，則需改寫為Vue原型屬性
+//將axios直接绑在原型链上，並註冊一個$axios自定義變數
+//如果是这样注册一个$axios變數和项目其他成员协作的时候就必须注明你注册的变量名称
 Vue.prototype.$axios = axios;
 
 // 2、定義路由
