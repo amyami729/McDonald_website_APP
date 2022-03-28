@@ -45,12 +45,12 @@
                     </span>
                 </div>
                 <div class="labels-view">
-                    <span class="labels-items" v-for="labelsItems in ratings.labels" :class="{highligh:labelsItems.label_star > 0}">
+                    <span class="labels-items" v-for="labelsItems in ratings.labels" :key="labelsItems.id" :class="{highligh:labelsItems.label_star > 0}">
                         {{labelsItems.content}}{{labelsItems.label_count}}
                     </span>
                 </div>
                 <ul class="ratings-detailed-comments">
-                    <li v-for="commentItems in selectComments" class="comment-item">
+                    <li v-for="commentItems in selectComments" :key="commentItems.id" class="comment-item">
                         <div class="comment-header">
                             <img :src="commentItems.user_pic_url" v-if="commentItems.user_pic_url">   <!-- !commentItems.user_pic_url 有屬性的情況下顯示模塊 -->
                             <img src="./img/anonymity.png" v-if="!commentItems.user_pic_url">   <!-- !commentItems.user_pic_url 屬性為null的情況下顯示模塊 -->
@@ -64,7 +64,7 @@
                             </div>
                             <div class="content" v-html="commentStr(commentItems.comment)"></div>
                             <div class="img-wrapper" v-if="commentItems.comment_pics.length">
-                                <img v-for="itemm in commentItems.comment_pics" :src="itemm.thumbnail_url">
+                                <img v-for="itemm in commentItems.comment_pics" :key="itemm.id" :src="itemm.thumbnail_url">
                             </div>
                         </div> 
                     </li>

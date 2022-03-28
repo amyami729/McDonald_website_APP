@@ -2,7 +2,7 @@
     <div class="star">
         <!-- v-for:將itemArray(key)該物件中的資料進行遍歷並取出來，賦值給itemClass -->
         <!-- itemClass:用來控制star圖片 -->
-        <span v-for="itemClass in itemArray" :class="itemClass" class="start-item"></span>
+        <span v-for="itemClass in itemArray" :key="itemClass.id" :class="itemClass" class="start-item"></span>
     </div>
 </template>
 

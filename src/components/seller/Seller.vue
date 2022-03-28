@@ -12,7 +12,7 @@
                 </div>
                 <div class="pics-wrapper" v-if="seller.poi_env" ref="picsView">
                     <ul class="pics-list" ref="picsList">
-                        <li class="pics-item" v-for="imgurl in seller.poi_env.thumbnails_url_list" ref="picsItem">
+                        <li class="pics-item" v-for="imgurl in seller.poi_env.thumbnails_url_list" :key="imgurl" ref="picsItem">
                             <img :src="imgurl">
                         </li>
                     </ul>
@@ -39,13 +39,13 @@
             <div class="other-wrapper">
                 <div class="server-wrapper">
                     商家服務
-                    <div class="poi-server" v-for="item in seller.poi_service">
+                    <div class="poi-server" v-for="item in seller.poi_service" :key="item.id">
                         <img :src="item.icon">
                         {{item.content}}
                     </div>
                 </div>
                 <div class="discounts-wrapper"> 
-                    <div class="discounts-item" v-for="item in seller.discounts2">
+                    <div class="discounts-item" v-for="item in seller.discounts2" :key="item.id">
                         <div class="icon">
                             <img :src="item.icon_url">
                         </div>

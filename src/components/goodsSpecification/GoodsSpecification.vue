@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <ul class="rating-content" v-if="specification.rating">
-                        <li v-for="comment in specification.rating.comment_list" class="comment-item">
+                        <li v-for="comment in specification.rating.comment_list" class="comment-item" :key="comment.id">
                             <div class="comment-header">
                                 <img :src="comment.user_icon" v-if="comment.user_icon">   <!-- comment.user_icon 有屬性的情況下顯示模塊 -->
                                 <img src="./img/anonymity.png" v-if="!comment.user_icon">   <!-- !comment.user_icon 屬性為null的情況不顯示模塊 -->

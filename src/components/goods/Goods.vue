@@ -19,7 +19,7 @@
             <!-- v-for:將food(key)該陣列中的資料進行遍歷並取出來，賦值給foodItem --> 
             <!-- ⓔ取得foodItem該陣列元素的index，調用currentIndex方法，判斷如果滾動的y值為當前對應的li索引值，則添加current樣式，用來連接左右側的區塊位置 -->
             <!-- ⓖ綁定click事件，並調用selectMenu方法 -->
-            <li class="menu-list" v-for="(foodItem, index) in food" :class="{current:currentIndex === index+1}" @click="selectMenu(index+1)">
+            <li class="menu-list" v-for="(foodItem, index) in food" :key="index" :class="{current:currentIndex === index+1}" @click="selectMenu(index+1)">
                 <p class="text">
                     <img :src="foodItem.icon" v-if="foodItem.icon" class="icon">
                     {{foodItem.name}}         <!-- 雙向資料綁定 -->
@@ -35,17 +35,17 @@
         <ul>
             <!-- 兩張圖片 -->
             <li class="container-data foodListHook">
-                <div v-for="containerItem in container.operation_source_list">
+                <div v-for="containerItem in container.operation_source_list" :key="containerItem.id">
                     <img :src="containerItem.pic_url">
                 </div>
             </li>
 
             <!-- 熱銷標題 -->
-            <li class="foods-data foodListHook" v-for="foodItem in food">
+            <li class="foods-data foodListHook" v-for="foodItem in food" :key="foodItem.id">
                 <h3 class="foods-title">{{foodItem.name}}</h3>      <!-- 雙向資料綁定 --> 
                 <ul>
                     <!-- v-for:將foodItem(key)中的spus資料進行遍歷並取出來，賦值給goodsDetails -->
-                    <li class="foods-details" v-for="goodsDetails in foodItem.spus" @click="showSpecification(goodsDetails)">
+                    <li class="foods-details" v-for="goodsDetails in foodItem.spus" @click="showSpecification(goodsDetails)" :key="goodsDetails.id">
                         <div class="foods-icon" :style="foods_big_icon(goodsDetails.picture)">    <!-- 透過v-bind樣式綁定，調用methods選項中的foods_big_icon函式，並帶入參數，透過參數獲取picture資料 -->
                         </div>
 

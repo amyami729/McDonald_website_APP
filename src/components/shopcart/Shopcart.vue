@@ -32,7 +32,7 @@
                 </div>
                 <div class="items-list" ref="itemsList">    <!-- 因為想取得該區塊的高度，所以在該區塊上設置ref屬性並添加屬性名 -->
                     <ul>
-                        <li class="settleItems" v-for="settleItems in settle_accounts">
+                        <li class="settleItems" v-for="settleItems in settle_accounts" :key="settleItems">
                             <div class="description-warpper">
                                 <div class="description-left">
                                     <p class="item-name">{{settleItems.name}}</p>
